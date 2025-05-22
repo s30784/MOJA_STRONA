@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Adam Michalski">
+    <meta name="description" content="Portfolio Adama Michalskiego">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Adama Michalskiego</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Adam Michalski</div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Strona Główna</a>
+        <div class="dropdown" id="projektyDropdown">
+            <a href="#" id="projektyBtn">Projekty</a>
+            <div class="dropdown-content" id="projektyMenu">
+            <a href="TABLEAU.html">Tableau</a>
+                <a href="projekt2.html">PowerBI</a>
+                <a href="projekt3.html">Trzy</a>
+            </div>
+        </div>
+        <a href="O_MNIE.html">O mnie</a>
+        <a href="KONTAKT.html">Kontakt</a>
+    </div>
+    <div class="burger" id="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>
+
+<main>
+<section class="hero-section" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: url('background.png') no-repeat center center; background-size: cover;">
+    <div class="hero-left" style="flex: 1; text-align: center;">
+        <img src="Analityk danych z wizualizacjami.png" alt="Adam Michalski jako analityk" style="max-width: 60%; border-radius: 20px; height: auto;">
+    </div>
+    <div class="hero-right" style="flex: 1; color: var(--text-dark); text-align: left; padding: 2rem;">
+        <img src="Tło.png" alt="Przykładowy dashboard" style="width: 100%;  border-radius: 12px; box-shadow: 0 0 0px rgba(0,0,0,0.5);">
+        <p style="margin-top: 1rem; font-size: 1.2rem;">
+            Moim celem jest tworzenie przejrzystych i angażujących wizualizacji, które pozwalają lepiej zrozumieć dane i wspierają podejmowanie decyzji.
+        </p>
+    </div>
+</section>
+</main>
+<section class="hero-section1">
+    <div class="hero-image">
+        <img src="Dane.png" alt="Data Center">
+    </div>
+    <div class="hero-text">
+        <h2>Znajomość wielu nażędzi</h2>
+        <p>
+            Dzięki pasji do ciągłego poszerzania wiedzy pracuję w wielu środowiskach analitycznych.
+        </p>
+    </div>
+</section>
+
+<section class="features-section">
+    <h3>Features</h3>
+    <h2>Najnowocześniejsze Rozwiązania</h2>
+    <div class="features">
+        <div class="feature-box" onclick="location.href='PowerBI.html'">
+            <img src="PowerBI.png" />
+            <h4>PowerBI</h4>
+            <p>Szybkie raporty świetna integracja ze środowiskiem Microsoft</p>
+        </div>
+        <div class="feature-box" onclick="location.href='Tableau.html'">
+            <img src="Tableau.png"/>
+            <h4>Tableau</h4>
+            <p>Wielkie możliwości analityczne integracja z systemami SalesForce</p>
+        </div>
+        <div class="feature-box" onclick="location.href='SQL.html'">
+            <img src="sql.png" />
+            <h4>SQL</h4>
+            <p>Złożone qwerendy i praca na wielkich zbiorach danych</p>
+        </div>
+    </div>
+</section>
+<script>
+    const btn = document.getElementById("dropdownBtn");
+    const menu = document.getElementById("dropdownMenu");
+
+    btn.addEventListener("click", function () {
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    // Opcjonalnie: zamknij dropdown po kliknięciu poza
+    window.addEventListener("click", function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.style.display = "none";
+        }
+    });
+</script>
+<script>
+    const featureBoxes = document.querySelectorAll('.feature-box');
+
+    featureBoxes.forEach(box => {
+        box.addEventListener('click', () => {
+            // usuń klasę aktywną ze wszystkich
+            featureBoxes.forEach(b => b.classList.remove('active-box'));
+            // dodaj do klikniętego
+            box.classList.add('active-box');
+        });
+    });
+</script>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    const projektyBtn = document.getElementById("projektyBtn");
+    const projektyMenu = document.getElementById("projektyMenu");
+
+    projektyBtn.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // zapobiega przeładowaniu strony
+            projektyMenu.style.display =
+                projektyMenu.style.display === "flex" ? "none" : "flex";
+        }
+    });
+</script>
+
+
+
+
+</body>
+</html>

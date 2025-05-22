@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Adam Michalski">
+    <meta name="description" content="O mnie - Adam Michalski">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O mnie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Adam Michalski</div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Strona Główna</a>
+        <div class="dropdown" id="projektyDropdown">
+            <a href="#" id="projektyBtn">Projekty</a>
+            <div class="dropdown-content" id="projektyMenu">
+                <a href="TABLEAU.html">Tableau</a>
+                <a href="projekt2.html">PowerBI</a>
+                <a href="projekt3.html">Trzy</a>
+            </div>
+        </div>
+        <a href="O_MNIE.html">O mnie</a>
+        <a href="KONTAKT.html">Kontakt</a>
+    </div>
+    <div class="burger" id="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>
+<main class="main-content">
+    <h1>O mnie</h1>
+    <img src="profile.jpg" alt="Adam Michalski" class="profile-photo">
+
+    <p>Studiuję na <strong>Polsko-Japońskiej Akademii Technik Komputerowych</strong> na kierunku Zarządzanie Informacją.</p>
+    <p>Pasjonuję się <strong>żeglarstwem</strong> i w wolnym czasie <strong>organizuję rejsy</strong>, łącząc pasję z planowaniem i pracą z ludźmi.</p>
+</main>
+<script>
+    const btn = document.getElementById("dropdownBtn");
+    const menu = document.getElementById("dropdownMenu");
+
+    btn.addEventListener("click", function () {
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    // Opcjonalnie: zamknij dropdown po kliknięciu poza
+    window.addEventListener("click", function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.style.display = "none";
+        }
+    });
+</script>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    const projektyBtn = document.getElementById("projektyBtn");
+    const projektyMenu = document.getElementById("projektyMenu");
+
+    projektyBtn.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // zapobiega przeładowaniu strony
+            projektyMenu.style.display =
+                projektyMenu.style.display === "flex" ? "none" : "flex";
+        }
+    });
+</script>
+
+</body>
+</html>

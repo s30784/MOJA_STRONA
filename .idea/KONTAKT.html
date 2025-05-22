@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Adam Michalski">
+    <meta name="description" content="Kontakt - Adam Michalski">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Adam Michalski</div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Strona Główna</a>
+        <div class="dropdown" id="projektyDropdown">
+            <a href="#" id="projektyBtn">Projekty</a>
+            <div class="dropdown-content" id="projektyMenu">
+                <a href="TABLEAU.html">Tableau</a>
+                <a href="projekt2.html">PowerBI</a>
+                <a href="projekt3.html">Trzy</a>
+            </div>
+        </div>
+        <a href="O_MNIE.html">O mnie</a>
+        <a href="KONTAKT.html">Kontakt</a>
+    </div>
+    <div class="burger" id="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <h1>Kontakt</h1>
+
+    <p><strong>Telefon:</strong> +48 123 456 789</p>
+    <p><strong>E-mail:</strong> <a href="mailto:adammichalski365@gmail.com">adammichalski365@gmail.com</a></p>
+    <p><strong>Credly:</strong> <a href="https://www.credly.com/users/adam-michalski.3814951b" target="_blank">Zobacz moje certyfikaty</a></p>
+    <p><strong>Git:</strong> <a href="https://github.com/s30784" target="_blank">Zobacz co pisałem</a></p>
+</main>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    const projektyBtn = document.getElementById("projektyBtn");
+    const projektyMenu = document.getElementById("projektyMenu");
+
+    projektyBtn.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // zapobiega przeładowaniu strony
+            projektyMenu.style.display =
+                projektyMenu.style.display === "flex" ? "none" : "flex";
+        }
+    });
+</script>
+
+
+</body>
+</html>

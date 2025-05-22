@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Adam Michalski">
+    <meta name="description" content="Raporty Tableau - Projekt Jeden">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Jeden – Raporty Tableau</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Adam Michalski</div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Strona Główna</a>
+        <div class="dropdown" id="projektyDropdown">
+            <a href="#" id="projektyBtn">Projekty</a>
+            <div class="dropdown-content" id="projektyMenu">
+                <a href="TABLEAU.html">Tableau</a>
+                <a href="projekt2.html">PowerBI</a>
+                <a href="projekt3.html">Trzy</a>
+            </div>
+        </div>
+        <a href="O_MNIE.html">O mnie</a>
+        <a href="KONTAKT.html">Kontakt</a>
+    </div>
+    <div class="burger" id="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>
+<main class="main-content">
+    <h1>Projekt Jeden: Raporty Tableau</h1>
+    <p>Na tej stronie znajdziesz moje raporty stworzone w Tableau, zawierające wizualizacje danych oraz analizy, które wykonałem w ramach nauki i projektów.</p>
+
+    <section class="report-section">
+        <h2>📊 Raport: Analiza sprzedaży miesięcznej</h2>
+        <p>Ten raport przedstawia miesięczne wyniki sprzedaży z podziałem na regiony i produkty. Umożliwia analizę sezonowości oraz porównanie wyników między zespołami.</p>
+
+        <img src="Raport Wolumen 2025.png" />
+    </section>
+
+</main>
+<script>
+    const btn = document.getElementById("dropdownBtn");
+    const menu = document.getElementById("dropdownMenu");
+
+    btn.addEventListener("click", function () {
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    window.addEventListener("click", function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.style.display = "none";
+        }
+    });
+</script>
+    <script>
+        const burger = document.getElementById("burger");
+        const navLinks = document.getElementById("navLinks");
+
+        burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+        const projektyBtn = document.getElementById("projektyBtn");
+        const projektyMenu = document.getElementById("projektyMenu");
+
+        projektyBtn.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+        e.preventDefault(); // zapobiega przeładowaniu strony
+        projektyMenu.style.display =
+        projektyMenu.style.display === "flex" ? "none" : "flex";
+    }
+    });
+</script>
+
+</body>
+</html>
