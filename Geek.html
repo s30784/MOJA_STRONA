@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geek Mode - Terminal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: #00ff99;
+            font-family: 'Courier New', monospace;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #terminal {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            white-space: pre-wrap;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .command-line {
+            display: flex;
+        }
+
+        .prompt {
+            margin-right: 10px;
+        }
+
+        #output {
+            margin-bottom: 1rem;
+        }
+
+        .blinker {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+
+        .ascii-art {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 2rem;
+        }
+
+        .link-command {
+            color: #00ff99;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .link-command:hover {
+            color: #66ffaa;
+        }
+    </style>
+</head>
+<body>
+<div id="terminal">
+    <div class="ascii-art">
+        <pre>
+
+
+    ██████╗  ██████╗  ██████╗ ██╗   ██╗
+   ██╔════╝ ██╔════╝ ██╔════╝ ██║  ██║
+   ██║ ████╗█████╗   █████╗  ██████║
+   ██║   ██║██╔══╝   ██╔══╝   ██╔══██║
+   ╚██████╔╝███████╗ ███████╗ ██║   ██║
+    ╚═════╝ ╚══════╝ ╚══════╝ ╚═╝   ╚═╝
+
+
+        </pre>
+        <div>by <strong>AL3.</strong></div>
+    </div>
+
+    <div id="output">
+        > Typing "help" to list available commands...
+    </div>
+
+    <div class="command-line">
+        <span class="prompt">user@al3:~$</span>
+        <span id="current-command">_</span>
+    </div>
+</div>
+
+<script>
+    const commands = [
+        "> Listing available projects...",
+        "ls",
+        "📁 Tableau     📁 PowerBI     📁 SQL     📁 Python     📁 D3.js",
+        "> cd Tableau",
+        "> opening Tableau dashboard...",
+    ];
+
+    let index = 0;
+    const output = document.getElementById("output");
+    const current = document.getElementById("current-command");
+
+    function typeCommand() {
+        if (index < commands.length) {
+            const line = document.createElement("div");
+            line.textContent = commands[index];
+            output.appendChild(line);
+            index++;
+            setTimeout(typeCommand, 1200);
+        } else {
+            const next = document.createElement("div");
+            next.innerHTML = `Type <span class="link-command" onclick="window.location.href='TABLEAU.html'">Tableau</span>, <span class="link-command" onclick="window.location.href='PowerBI.html'">PowerBI</span>, <span class="link-command" onclick="window.location.href='SQL.html'">SQL</span>`;
+            output.appendChild(next);
+        }
+    }
+
+    setTimeout(typeCommand, 1500);
+</script>
+</body>
+</html>

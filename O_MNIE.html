@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Adam Michalski">
-    <meta name="description" content="O mnie - Adam Michalski">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="author" content="Adam Michalski" />
+    <meta name="description" content="O mnie - Adam Michalski" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>O mnie</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            background: url('TłoBiałe.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        #geek-transition {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: black;
+            color: #00ff99;
+            font-family: 'Courier New', monospace;
+            z-index: 9999;
+            padding: 2rem;
+        }
+
+        #glitch-video-wrapper {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: black;
+        }
+
+        #glitch-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
-<style>
-    body {
-        background: url('TłoBiałe.png') no-repeat center center;
-        background-size: cover;
-    }
-</style>
 
 <body>
-
 <nav class="navbar">
     <div class="logo">Adam Michalski</div>
     <div class="nav-links" id="navLinks">
@@ -33,32 +57,142 @@
         <a href="KONTAKT.html">Kontakt</a>
     </div>
     <div class="burger" id="burger">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div></div><div></div><div></div>
     </div>
 </nav>
+
 <main class="main-content">
     <h1>O mnie</h1>
     <p>Studiuję na <strong>Polsko-Japońskiej Akademii Technik Komputerowych</strong> na kierunku Zarządzanie Informacją.</p>
     <p>Pasjonuję się <strong>żeglarstwem</strong> i w wolnym czasie <strong>organizuję rejsy</strong>, łącząc pasję z planowaniem i pracą z ludźmi.</p>
+
+    <section class="certyfikaty-section" style="padding: 2rem;">
+        <button onclick="toggleCertyfikaty()" style="
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #273658;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;">
+            Certyfikaty i Polecenia
+        </button>
+
+        <ul id="certyfikatyList" style="
+      display: none;
+      margin-top: 1rem;
+      list-style: none;
+      padding-left: 0;">
+            <li style="margin: 10px 0;"><a href="certyfikaty/TableauCertyfikat.pdf" download>📄 Certyfikat Tableau</a></li>
+            <li style="margin: 10px 0;"><a href="certyfikaty/PowerBIPolecenieAdam.pdf" download>📄 Polecenie PowerBI</a></li>
+            <li style="margin: 10px 0;"><a href="certyfikaty/SQL_Advanced_Adam.jpg" download>📷 Certyfikat SQL Advanced</a></li>
+        </ul>
+    </section>
+
+    <!-- 🔘 GEEK MODE BUTTON -->
+    <section style="text-align: center; margin-top: 4rem;">
+        <button onclick="enterGeekMode()" id="geek-btn" style="
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #111;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+      border-radius: 10px;
+      cursor: pointer;">
+            🧠 Wejdź do trybu Geek
+        </button>
+    </section>
 </main>
-<script>
-    const btn = document.getElementById("dropdownBtn");
-    const menu = document.getElementById("dropdownMenu");
 
-    btn.addEventListener("click", function () {
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
-    });
+<!-- 🔲 GEEK GLITCH VIDEO -->
+<div id="glitch-video-wrapper">
+    <video id="glitch-video" autoplay muted playsinline preload="auto">
+        <source src="Glitch.mp4" type="video/mp4" />
+    </video>
+</div>
 
-    // Opcjonalnie: zamknij dropdown po kliknięciu poza
-    window.addEventListener("click", function(e) {
-        if (!btn.contains(e.target) && !menu.contains(e.target)) {
-            menu.style.display = "none";
-        }
-    });
-</script>
+<!-- 🔲 GEEK TRANSITION TERMINAL -->
+<div id="geek-transition">
+    <div id="terminal-output" style="white-space: pre-wrap; font-size: 14px;"></div>
+    <pre id="ascii-hacked" style="
+    display: none;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 2rem;
+  ">
+ _    _            _              _
+| |  | |          | |            | |
+| |__| | __ _  ___| | _____   ___| |
+|  __  |/ _` |/ __| |/ / _ \ / __| |
+| |  | | (_| | (__|   <  __/| (__| |
+|_|  |_|\__,_|\___|_|\_\___| \___|_|
+                by AL3.
+  </pre>
+</div>
+
+
 <script>
+    function enterGeekMode() {
+        const videoWrapper = document.getElementById("glitch-video-wrapper");
+        const video = document.getElementById("glitch-video");
+
+        videoWrapper.style.display = "block";
+        video.currentTime = 0;
+        video.play();
+
+        setTimeout(() => {
+            // Zakończ glitch
+            video.pause();
+            videoWrapper.style.display = "none";
+
+            // Pokaż terminal
+            const transition = document.getElementById("geek-transition");
+            const output = document.getElementById("terminal-output");
+            const hackedAscii = document.getElementById("ascii-hacked");
+
+            transition.style.display = "block";
+            output.textContent = "";
+
+            const commands = [
+                "ping 127.0.0.1 -t",
+                "sudo ssh root@192.168.1.1",
+                "connecting to mesh...",
+                "bypassing firewall...",
+                "grep password /etc/shadow",
+                "rm -rf / --no-preserve-root",
+                "injecting payload...",
+                "echo 'Hello AL3.'",
+                "nmap -Pn -p- 10.0.0.0/24",
+                "establishing VPN tunnel...",
+                "whoami",
+                "root",
+                "init 6",
+                "echo 1 > /proc/sys/net/ipv4/ip_forward",
+                "launching GUI bypass...",
+                "access granted.",
+                "system compromised."
+            ];
+
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < commands.length) {
+                    output.textContent += commands[i] + "\n";
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        hackedAscii.style.display = "block";
+
+                        // 🔁 Automatyczne przekierowanie
+                        setTimeout(() => {
+                            window.location.href = "Geek.html";
+                        }, 1000);
+
+                    }, 500);
+                }
+            }, 50);
+        }, 2000); // po glitch wideo
+    }
     const burger = document.getElementById("burger");
     const navLinks = document.getElementById("navLinks");
 
@@ -77,6 +211,5 @@
         }
     });
 </script>
-
 </body>
 </html>
