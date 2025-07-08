@@ -18,8 +18,8 @@
             <a href="#" id="projektyBtn">Projekty</a>
             <div class="dropdown-content" id="projektyMenu">
             <a href="TABLEAU.html">Tableau</a>
-                <a href="projekt2.html">PowerBI</a>
-                <a href="projekt3.html">Trzy</a>
+                <a href="PowerBI.html">PowerBI</a>
+                <a href="SQL.html">SQL</a>
             </div>
         </div>
         <a href="O_MNIE.html">O mnie</a>
@@ -33,18 +33,64 @@
 </nav>
 
 <main>
-<section class="hero-section" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: url('background.png') no-repeat center center; background-size: cover;">
-    <div class="hero-left" style="flex: 1; text-align: center;">
-        <img src="Analityk danych z wizualizacjami.png" alt="Adam Michalski jako analityk" style="max-width: 60%; border-radius: 20px; height: auto;">
+    <section class="hero-section" style="
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('TłoBiałe.png') no-repeat center center;
+    background-size: cover;
+    padding: 4rem 2rem;
+    gap: 3rem;
+    flex-wrap: wrap;
+
+<div class="hero-left" style="
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    ">
+    <img src=".idea/Analityk%20danych%20z%20wizualizacjami.png"
+         alt="Adam Michalski jako analityk"
+         style="max-width: 400px;
+                max-height: 500px;
+                width: 100%;
+                border-radius: 20px;
+                height: auto;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
     </div>
-    <div class="hero-right" style="flex: 1; color: var(--text-dark); text-align: left; padding: 2rem;">
-        <img src="Tło.png" alt="Przykładowy dashboard" style="width: 100%;  border-radius: 12px; box-shadow: 0 0 0px rgba(0,0,0,0.5);">
-        <p style="margin-top: 1rem; font-size: 1.2rem;">
-            Moim celem jest tworzenie przejrzystych i angażujących wizualizacji, które pozwalają lepiej zrozumieć dane i wspierają podejmowanie decyzji.
-        </p>
-    </div>
-</section>
+
+        <div class="hero-right" style="
+        flex: 1;
+        min-width: 300px;
+        color: var(--text-dark);
+        max-width: 600px;
+    ">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Cześć, jestem Adam!</h1>
+            <p style="font-size: 1.2rem; line-height: 1.6;">
+                Specjalizuję się w tworzeniu interaktywnych wizualizacji danych oraz automatyzacji raportowania.
+                Łączę wiedzę techniczną z analitycznym podejściem, aby dostarczać klarownych i skutecznych rozwiązań.
+                <br><br>
+                Moim celem jest przekształcanie danych w wartość – w taki sposób, by wspierać realne decyzje biznesowe.
+            </p>
+            <button onclick="location.href='kontakt.html'" style="
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background-color: #273658;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        ">
+                Skontaktuj się ze mną
+            </button>
+        </div>
+
+    </section>
 </main>
+
+
 <section class="hero-section1">
     <div class="hero-image">
         <img src="Dane.png" alt="Data Center">
@@ -57,27 +103,29 @@
     </div>
 </section>
 
-<section class="features-section">
-    <h3>Features</h3>
-    <h2>Najnowocześniejsze Rozwiązania</h2>
-    <div class="features">
-        <div class="feature-box" onclick="location.href='PowerBI.html'">
+<section class="features-section" style="background: url('TłoBiałe.png') no-repeat center center; background-size: cover; padding: 60px 20px;">
+    <div style="text-align: center;">
+        <h2>Najnowocześniejsze Rozwiązania</h2>
+    </div>
+    <div class="features" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
+        <div class="feature-box" onclick="location.href='PowerBI.html'" style="text-align: center;">
             <img src="PowerBI.png" />
             <h4>PowerBI</h4>
-            <p>Szybkie raporty świetna integracja ze środowiskiem Microsoft</p>
+            <p>Szybkie raporty, świetna integracja ze środowiskiem Microsoft</p>
         </div>
-        <div class="feature-box" onclick="location.href='TABLEAU.html'">
+        <div class="feature-box" onclick="location.href='TABLEAU.html'" style="text-align: center;">
             <img src="Tableau.png"/>
             <h4>Tableau</h4>
-            <p>Wielkie możliwości analityczne integracja z systemami SalesForce</p>
+            <p>Wielkie możliwości analityczne, integracja z systemami SalesForce</p>
         </div>
-        <div class="feature-box" onclick="location.href='SQL.html'">
+        <div class="feature-box" onclick="location.href='SQL.html'" style="text-align: center;">
             <img src="sql.png" />
             <h4>SQL</h4>
-            <p>Złożone qwerendy i praca na wielkich zbiorach danych</p>
+            <p>Złożone kwerendy i praca na wielkich zbiorach danych</p>
         </div>
     </div>
 </section>
+
 <script>
     const btn = document.getElementById("dropdownBtn");
     const menu = document.getElementById("dropdownMenu");
@@ -118,7 +166,7 @@
 
     projektyBtn.addEventListener("click", (e) => {
         if (window.innerWidth <= 768) {
-            e.preventDefault(); // zapobiega przeładowaniu strony
+            e.preventDefault();
             projektyMenu.style.display =
                 projektyMenu.style.display === "flex" ? "none" : "flex";
         }

@@ -8,6 +8,13 @@
     <title>O mnie</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    body {
+        background: url('TłoBiałe.png') no-repeat center center;
+        background-size: cover;
+    }
+</style>
+
 <body>
 
 <nav class="navbar">
@@ -18,8 +25,8 @@
             <a href="#" id="projektyBtn">Projekty</a>
             <div class="dropdown-content" id="projektyMenu">
                 <a href="TABLEAU.html">Tableau</a>
-                <a href="projekt2.html">PowerBI</a>
-                <a href="projekt3.html">Trzy</a>
+                <a href="PowerBI.html">PowerBI</a>
+                <a href="SQL.html">SQL</a>
             </div>
         </div>
         <a href="O_MNIE.html">O mnie</a>
@@ -33,8 +40,6 @@
 </nav>
 <main class="main-content">
     <h1>O mnie</h1>
-    <img src="profile.jpg" alt="Adam Michalski" class="profile-photo">
-
     <p>Studiuję na <strong>Polsko-Japońskiej Akademii Technik Komputerowych</strong> na kierunku Zarządzanie Informacją.</p>
     <p>Pasjonuję się <strong>żeglarstwem</strong> i w wolnym czasie <strong>organizuję rejsy</strong>, łącząc pasję z planowaniem i pracą z ludźmi.</p>
 </main>
@@ -66,7 +71,7 @@
 
     projektyBtn.addEventListener("click", (e) => {
         if (window.innerWidth <= 768) {
-            e.preventDefault(); // zapobiega przeładowaniu strony
+            e.preventDefault();
             projektyMenu.style.display =
                 projektyMenu.style.display === "flex" ? "none" : "flex";
         }

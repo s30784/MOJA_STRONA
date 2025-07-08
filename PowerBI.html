@@ -32,19 +32,9 @@
     </div>
 </nav>
 <main class="main-content">
-    <h1>Projekt Jeden: Raporty Tableau</h1>
-    <p>Na tej stronie znajdziesz moje raporty stworzone w Tableau, zawierające wizualizacje danych oraz analizy, które wykonałem w ramach nauki i projektów.</p>
+    <h1>Projekt Jeden: Power Bi</h1>
+    <p>Na tej stronie znajdziesz moje raporty stworzone w PowerBi, zawierające wizualizacje danych oraz analizy, które wykonałem w ramach nauki i projektów.</p>
 
-    <section class="report-section">
-        <h2>📊 Raport: Analiza sprzedaży miesięcznej</h2>
-        <p>Ten raport przedstawia miesięczne wyniki sprzedaży z podziałem na regiony i produkty. Umożliwia analizę sezonowości oraz porównanie wyników między zespołami.</p>
-    </section>
-    <section class="report-section">
-        <h2>Raport Wolumen</h2>
-        <div class="report-image">
-            <img src="Raport%20Wolumen%202025.png" alt="Raport Wolumen" />
-        </div>
-    </section>
 
 </main>
 <script>
@@ -61,23 +51,23 @@
         }
     });
 </script>
-    <script>
-        const burger = document.getElementById("burger");
-        const navLinks = document.getElementById("navLinks");
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
 
-        burger.addEventListener("click", () => {
+    burger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
     });
 
-        const projektyBtn = document.getElementById("projektyBtn");
-        const projektyMenu = document.getElementById("projektyMenu");
+    const projektyBtn = document.getElementById("projektyBtn");
+    const projektyMenu = document.getElementById("projektyMenu");
 
-        projektyBtn.addEventListener("click", (e) => {
+    projektyBtn.addEventListener("click", (e) => {
         if (window.innerWidth <= 768) {
-        e.preventDefault(); // zapobiega przeładowaniu strony
-        projektyMenu.style.display =
-        projektyMenu.style.display === "flex" ? "none" : "flex";
-    }
+            e.preventDefault(); // zapobiega przeładowaniu strony
+            projektyMenu.style.display =
+                projektyMenu.style.display === "flex" ? "none" : "flex";
+        }
     });
 </script>
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Adam Michalski">
+  <meta name="description" content="Raporty Tableau - Projekt Jeden">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt Jeden – Raporty Tableau</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Adam Michalski</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Strona Główna</a>
+    <div class="dropdown" id="projektyDropdown">
+      <a href="#" id="projektyBtn">Projekty</a>
+      <div class="dropdown-content" id="projektyMenu">
+        <a href="TABLEAU.html">Tableau</a>
+        <a href="PowerBI.html">PowerBI</a>
+        <a href="SQL.html">SQL</a>
+      </div>
+    </div>
+    <a href="O_MNIE.html">O mnie</a>
+    <a href="KONTAKT.html">Kontakt</a>
+  </div>
+  <div class="burger" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+<main class="main-content">
+  <h1>Projekt Jeden: SQL</h1>
+  <p>Na tej stronie już niedługo będą moje projekty realizowane w SQL</p>
+
+
+</main>
+<script>
+  const btn = document.getElementById("dropdownBtn");
+  const menu = document.getElementById("dropdownMenu");
+
+  btn.addEventListener("click", function () {
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  });
+
+  window.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.style.display = "none";
+    }
+  });
+</script>
+<script>
+  const burger = document.getElementById("burger");
+  const navLinks = document.getElementById("navLinks");
+
+  burger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  const projektyBtn = document.getElementById("projektyBtn");
+  const projektyMenu = document.getElementById("projektyMenu");
+
+  projektyBtn.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault(); // zapobiega przeładowaniu strony
+      projektyMenu.style.display =
+              projektyMenu.style.display === "flex" ? "none" : "flex";
+    }
+  });
+</script>
+
+</body>
+</html>
